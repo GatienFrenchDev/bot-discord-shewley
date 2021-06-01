@@ -1,22 +1,17 @@
+const { ReactionCollector } = require("discord.js")
+
 module.exports = {
     name: 'clear',
     description: 'clear le chat',
     async execute(message, args){
-        if(!messsage.member.hasPermission("MANAGE_MESSAGE")){
-            return message.reply('Tu n as pas les permissions pour clear le chat !').then(message => message.delete(1000));
-        }
-        if (isNaN(args[0]) || parseInt(args[0] <= 0 )) {
-            return message.reply('tu ne peux pas supprimer 0 messages').then(message => message.delete(1000));
-        }
+        if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply ("Vous n'avez pas les permissions pour utiliser cette commande !")
+        if (!args[0]) return message.reply('Vous devez entrez un nombre de messages a supprimer !');
+        if (isNaN(args[0])) return message.reply('Entrez un nombre compris entre 1 et 100');
+        if (args[0] > 100) return message.reply('Vous ne pouvez pas supprimer plus de 100 messages !');
+        if (args[0] < 2) return message.reply ('Tu ne peux pas supprimer un seul message !');
 
-    //     let deleteAmount;
-
-    //     if (parseInt(args[0]) > 100) {
-    //         deleteAmount = 100;
-    //     } else{
-    //         deleteAmount = parseInt(args[0]);
-    //     }
-
-    //     message.channel.bulkDelete(deleteAmount, true).then(deleted => message.channel.send(`J'ai supprimé \`{$deleteamount}\` messages`))
+        await message.channel.messages.fetch({limit : args[0]}).then(messages => {
+            message.channel.bulkDelete(messages, true).then (message.channel.send("`J'ai supprimé "+args[0]+" messages avec succès !`"));
+        })
      }
 }

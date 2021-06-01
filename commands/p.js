@@ -7,8 +7,8 @@ module.exports = {
     async execute(message, args) {
         const VoiceChannel = message.member.voice.channel;
 
-        if (!VoiceChannel) return message.channel.send('Tu dois etre dans un vocal');
-        if (!args.length) return message.channel.send('Tu dois donner le nom du la musique');
+        if (!VoiceChannel) return message.channel.send('`Tu dois etre dans un salon vocal !`');
+        if (!args[0]) return message.channel.send('`Tu dois renseigner le nom du la musique !`');
 
         const validURL = (str) =>{
             var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
@@ -24,7 +24,7 @@ module.exports = {
             const stream = ytdl(args[0], {filter: 'audioonly'});
             connection.play(stream, {seek: 0, volume: 1})
 
-            await message.reply(`Je joue maintenant ***${args[0]}***`);
+            await message.reply(':musical_note: `Je joue maintenant ' + args[0] +'`');
             await message.delete();
 
             return
@@ -44,9 +44,9 @@ module.exports = {
         if(video){
             const stream = ytdl(video.url, {filter: 'audioonly'});
             connection.play(stream, {seek: 0, volume: 1})
-            await message.reply(`Je joue maintenant ***${video.title}***`)
+            await message.reply(':musical_note: `Je joue maintenant '+ video.title + '`')
         }else {
-            message.channel.send('pas de vidéo trouvée');
+            message.channel.send('`Aucune vidéo trouvée :/`');
         }
     }
 }

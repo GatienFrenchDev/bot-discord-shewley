@@ -16,7 +16,14 @@ for (const file of commandFiles){
 }
 
 client.once('ready', () => {
-    console.log('BotShewley est online !')
+    console.log(' ______                 ______ _                 _                  ');
+    console.log('(____  \        _      / _____) |               | |             ');
+    console.log(' ____)  ) ___ _| |_   ( (____ | |__  _____ _ _ _| | _____ _   _ ');
+    console.log('|  __  ( / _ (_   _)   \____ \|  _ \| ___ | | | | || ___ | | | |');
+    console.log('| |__)  ) |_| || |_    _____) ) | | | ____| | | | || ____| |_| |');
+    console.log('|______/ \___/  \__)  (______/|_| |_|_____)\___/ \_)_____)\__  |');
+    console.log('                                                         (____/ ');
+    console.log('coded by Xolork for Shewley Studio');
     client.user.setActivity("-help | Shewley Studio", {type: "PLAYING",});
 })
 
@@ -33,8 +40,14 @@ client.on('message', message => {
         else if (command === 'stop') {
             client.commands.get('stop').execute(message, args);
         }
+        else if (command === 'biere' || command === 'beer') {
+            client.commands.get('biere').execute(message, args);
+        }
         else if (command === 'clear') {
             client.commands.get('clear').execute(message, args);
+        }
+        else if (command === 'pfp') {
+            client.commands.get('pfp').execute(message, args);
         }
         else if (command === 'help') {
             client.commands.get('help').execute(message, args);
@@ -84,4 +97,4 @@ client.on('message', message => {
 
 
 
-client.login(process.env.TOKEN);
+client.login('ODQ4ODUzODQ5MDIzNDQ3MDcw.YLSqwA.ZIbBgk2dlrR2wkrJwQfGuInLymY');
