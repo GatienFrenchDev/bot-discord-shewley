@@ -12,6 +12,7 @@ module.exports = {
             { name: '-biere ou -beer [_mention de la personne_]', value: 'offre une bière a la personne de ton choix'},
             { name: '-clear [_nombres de messages_]', value: 'supprime un nombre donné de message (requiert la permission de gérer les messages)'},
             { name: '-help', value: 'afficher toutes les commandes'},
+            { name: '-kick [_mention de la personne_]', value: "expulse la personne de votre choix du serveur (requiert la permission d'expulser des membres)"},
             { name: '-p [_nom de la musique_]', value: 'pour jouer une musique sur un vocal via youtube'},
             { name: '-pfp [_mention de la personne_]', value: "récupérer la photo de profil d'un utilisateur Discord"},
             { name: '-ping', value: 'vérifier la connectivite du bot'},

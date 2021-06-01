@@ -55,6 +55,9 @@ client.on('message', message => {
         else if (command === 'help') {
             client.commands.get('help').execute(message, args);
         }
+        else if (command === 'kick') {
+            client.commands.get('kick').execute(message, args);
+        }
         
         else if (command === 'about') {
             message.channel.send(':hammer: ` Bot crée et codé le 31/06/21 par gαтιєη#5600 en JavaScript pour le serveur Discord Shewley Studio`')
@@ -100,4 +103,4 @@ client.on('message', message => {
 
 
 
-client.login(process.env.TOKEN);
+client.login('process.env.TOKEN');
