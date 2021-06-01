@@ -6,6 +6,8 @@ const prefix = "-";
 
 const fs = require('fs');
 
+const welcome = require('./welcome')
+
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -25,6 +27,7 @@ client.once('ready', () => {
     console.log('                                                         (____/ ');
     console.log('coded by Xolork for Shewley Studio');
     client.user.setActivity("-help | Shewley Studio", {type: "PLAYING",});
+    welcome(client);
 })
 
 client.on('message', message => {
@@ -97,4 +100,4 @@ client.on('message', message => {
 
 
 
-client.login(process.env.TOKEN);
+client.login('ODQ4ODUzODQ5MDIzNDQ3MDcw.YLSqwA.AjWb-HXBUhgglWcFIKMH-zNAA6g');
