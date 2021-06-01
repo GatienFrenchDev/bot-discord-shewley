@@ -103,4 +103,4 @@ client.on('message', message => {
 
 
 
-client.login('proccess.env.TOKEN');
+client.login('process.env.TOKEN');
