@@ -46,10 +46,13 @@ client.on('message', message => {
         else if (command === 'stop' || command === 's') {
             client.commands.get('stop').execute(message, args);
         }
+        else if (command === 'goulag' || command === 's') {
+            client.commands.get('goulag').execute(message, args);
+        }
         else if (command === 'biere' || command === 'beer') {
             client.commands.get('biere').execute(message, args);
         }
-        else if (command === 'clear') {
+        else if (command === 'clear' || command === 'purge') {
             client.commands.get('clear').execute(message, args);
         }
         else if (command === 'pfp') {
