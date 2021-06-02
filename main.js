@@ -28,7 +28,10 @@ client.once('ready', () => {
     console.log('|______/ \___/  \__)  (______/|_| |_|_____)\___/ \_)_____)\__  |');
     console.log('                                                         (____/ ');
     console.log('coded by Xolork for Shewley Studio');
-    client.user.setActivity("-help | Shewley Studio", {type: "PLAYING",});
+    client.user.setActivity("-help | Shewley Studio", {
+  type: "STREAMING",
+  url: "https://www.twitch.tv/shewleystudio"
+});
     welcome(client);
 })
 
