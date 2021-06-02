@@ -28,10 +28,7 @@ client.once('ready', () => {
     console.log('|______/ \___/  \__)  (______/|_| |_|_____)\___/ \_)_____)\__  |');
     console.log('                                                         (____/ ');
     console.log('coded by Xolork for Shewley Studio');
-    client.user.setActivity("-help | Shewley Studio", {
-  type: "STREAMING",
-  url: "https://www.twitch.tv/shewleystudio"
-});
+    client.user.setActivity("-help | Shewley Studio", {type: "PLAYING",});
     welcome(client);
 })
 
@@ -43,10 +40,10 @@ client.on('message', message => {
             let ping = Date.now() - message.createdTimestamp;
             message.channel.send(":ping_pong: `PONG ! (" + ping + "ms)`")
         }
-        else if (command === 'p') {
+        else if (command === 'p' || command === 'play') {
             client.commands.get('p').execute(message, args);
         }
-        else if (command === 'stop') {
+        else if (command === 'stop' || command === 's') {
             client.commands.get('stop').execute(message, args);
         }
         else if (command === 'biere' || command === 'beer') {

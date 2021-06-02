@@ -13,10 +13,10 @@ module.exports = {
             { name: '-clear [_nombres de messages_]', value: 'supprime un nombre donné de message (requiert la permission de gérer les messages)'},
             { name: '-help', value: 'afficher toutes les commandes'},
             { name: '-kick [_mention de la personne_]', value: "expulse la personne de votre choix du serveur (requiert la permission d'expulser des membres)"},
-            { name: '-p [_nom de la musique_]', value: 'pour jouer une musique sur un vocal via youtube'},
+            { name: '-p ou -play [_nom de la musique_]', value: 'pour jouer une musique sur un vocal via youtube'},
             { name: '-pfp [_mention de la personne_]', value: "récupérer la photo de profil d'un utilisateur Discord"},
             { name: '-ping', value: 'vérifier la connectivite du bot'},
-            { name: '-stop', value: 'faire partir le bot du channel'},
+            { name: '-stop ou -s', value: 'faire partir le bot du channel'},
             { name: '-twitch ou -ttv', value: 'renvoie vers la chaine Twitch du Shewley Studio'},
             { name: '-yt ou -ytb ou -youtube', value: 'renvoie vers la Chaine youtube du Shewley Studio'},
         )
