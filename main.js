@@ -43,6 +43,9 @@ client.on('message', message => {
         else if (command === 'p' || command === 'play') {
             client.commands.get('p').execute(message, args);
         }
+        else if (command === 'skip') {
+            message.channel.send("`le -skip n'est pas encore codé`");
+        }
         else if (command === 'stop' || command === 's') {
             client.commands.get('stop').execute(message, args);
         }
