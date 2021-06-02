@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 
+require('dotenv').config();
+
 const client = new Discord.Client();
 
 const prefix = "-";
@@ -35,7 +37,8 @@ client.on('message', message => {
         const args = message.content.slice(prefix.length).split(/ +/);
         const command = args.shift().toLowerCase();
         if (command === 'ping') {
-            message.channel.send(':ping_pong: ` PONG !`')
+            let ping = Date.now() - message.createdTimestamp;
+            message.channel.send(":ping_pong: `PONG ! (" + ping + "ms)`")
         }
         else if (command === 'p') {
             client.commands.get('p').execute(message, args);
@@ -63,7 +66,8 @@ client.on('message', message => {
             message.channel.send(':hammer: ` Bot crée et codé le 31/06/21 par gαтιєη#5600 en JavaScript pour le serveur Discord Shewley Studio`')
         }
         if (command === 'pong') {
-            message.channel.send(':ping_pong: ` PING !`' + Math.round(client.ws.ping)+'ez')
+            let ping = Date.now() - message.createdTimestamp;
+            message.channel.send(":ping_pong: `PING ! (" + ping + "ms)`")
         }
         if (command === 'twitch' || command === 'ttv') {
             message.channel.send(':studio_microphone: `Notre chaine Twitch : https://twitch.tv/shewleystudio`')
