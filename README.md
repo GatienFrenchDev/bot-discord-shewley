@@ -1,3 +1,3 @@
-# bot-discord-shewley
-A Discord Bot for the Shewley Studio, coded in JavaScipt and OpenSource
-You are free to take the code if you want :)
+# A Discord Bot for the Shewley Studio (streamer and youtuber)
+This Discord bot was written by myself for the Shewley Studio team. Shewley Studio is a Twitch streamer duo (twitch.tv/shewleystudio).
+He does all the basic discord bot stuff but there is one thing that sets him apart from the rest: he's cool 😎!
