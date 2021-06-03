@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-// require('dotenv').config();
+require('dotenv').config();
 
 const client = new Discord.Client();
 
@@ -73,7 +73,7 @@ client.on('message', message => {
         }
         
         else if (command === 'about') {
-            message.channel.send(':hammer: ` Bot crée et codé le 31/06/21 par gαтιєη#5600 en JavaScript pour le serveur Discord Shewley Studio`')
+            client.commands.get('about').execute(message, args);
         }
         if (command === 'pong') {
             let ping = Date.now() - message.createdTimestamp;
