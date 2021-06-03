@@ -5,7 +5,7 @@ module.exports = {
     description: 'kick un utilisateur du serveur !',
     execute(message, args) {
         const sender = message.author.id;
-        if(!message.member.hasPermission('ADMIN') || (!message.member.hasPermission('KICK_MEMBERS'))){
+        if(!message.member.hasPermission('KICK_MEMBERS')){
             const embed = new Discord.MessageEmbed()
             .setColor('ff3333')
             .setTitle('❌ Kick')
