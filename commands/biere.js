@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'biere',
     description: 'donne une biere a un membre',
@@ -8,13 +10,19 @@ module.exports = {
             const joueur_tag = message.mentions.members.first();
             const sender = message.author.id;
             if (joueur_tag == sender) {
-                message.delete();
-                message.reply ("`Tu ne peux pas t'offrir une bière a toi même !`");
+                const embed = new Discord.MessageEmbed()
+                .setColor('ffde24')
+                .setTitle('🍻 Taverne')
+                .setDescription(`<@${sender}> tu ne peux pas t'offrir une bière a toi même !`)
+                message.channel.send(embed);
                 return 
             }
             else{
-                message.delete();
-                message.channel.send( ":beers: <@" + joueur_tag +">" + ", tu as recu une biere de la part de " + "<@" + sender +"> !");
+                const embed = new Discord.MessageEmbed()
+                .setColor('ffde24')
+                .setTitle('🍻 Taverne')
+                .setDescription(`${joueur_tag} tu as reçu une chope de bière 🍺 de la part de <@${sender}> !`)
+                message.channel.send(embed);
                 return
             }
             

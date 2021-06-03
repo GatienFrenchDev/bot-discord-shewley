@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-//require('dotenv').config();
+require('dotenv').config();
 
 const client = new Discord.Client();
 
@@ -27,7 +27,8 @@ client.once('ready', () => {
     console.log('| |__)  ) |_| || |_    _____) ) | | | ____| | | | || ____| |_| |');
     console.log('|______/ \___/  \__)  (______/|_| |_|_____)\___/ \_)_____)\__  |');
     console.log('                                                         (____/ ');
-    console.log('coded by Xolork for Shewley Studio');
+    console.log('Codé par gαтιєη#5600 pour le Shewley Studio');
+    console.log('Connecté en tant que : ' + client.user.tag);
     client.user.setActivity("-help | Shewley Studio", {type: "PLAYING",});
     welcome(client);
 })
@@ -40,20 +41,20 @@ client.on('message', message => {
             let ping = Date.now() - message.createdTimestamp;
             message.channel.send(":ping_pong: `PONG ! (" + ping + "ms)`")
         }
-        else if (command === 'p' || command === 'play') {
-            client.commands.get('p').execute(message, args);
-        }
         else if (command === 'skip') {
-            message.channel.send("`le -skip n'est pas encore codé`");
+            client.commands.get('skip').execute(message, args);
         }
-        else if (command === 'stop' || command === 's') {
-            client.commands.get('stop').execute(message, args);
+        else if (command === 'p' || command === 'play') {
+            client.commands.get('p').execute(client, message, args);
         }
         else if (command === 'goulag' || command === 's') {
             client.commands.get('goulag').execute(message, args);
         }
         else if (command === 'biere' || command === 'beer') {
             client.commands.get('biere').execute(message, args);
+        }
+        else if (command === 'champagne') {
+            client.commands.get('champagne').execute(message, args);
         }
         else if (command === 'clear' || command === 'purge') {
             client.commands.get('clear').execute(message, args);
