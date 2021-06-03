@@ -1,13 +1,34 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'kick',
     description: 'kick un utilisateur du serveur !',
     execute(message, args) {
-        if(!message.member.hasPermission('ADMIN') || (!message.member.hasPermission('KICK_MEMBERS'))) return message.reply ("`Vous n'avez pas les permissions pour exécuter cette commande !`")
-        if (!args[0]) return message.reply ("`Tu dois identifier la personne à kick !`");
-        if (!message.mentions.members.first()) return message.reply ("`Tu dois identifier la personne a kick !`");
+        const sender = message.author.id;
+        if(!message.member.hasPermission('ADMIN') || (!message.member.hasPermission('KICK_MEMBERS'))){
+            const embed = new Discord.MessageEmbed()
+            .setColor('ff3333')
+            .setTitle('❌ Kick')
+            .setDescription(`<@${sender}> tu n'as pas les permissions pour utiliser cette commande !`)
+            message.channel.send(embed);
+            return
+        }
+        if (!args[0] || (!message.mentions.members.first())){
+            const embed = new Discord.MessageEmbed()
+            .setColor('ff3333')
+            .setTitle('❌ Kick')
+            .setDescription(`<@${sender}> tu dois identifier la personne à kick !`)
+            message.channel.send(embed);
+            return
+        }
         else{
             message.mentions.members.first().kick();
-            message.channel.send(`${message.mentions.members.first()} a été **expulsé** du serveur à la demande de <@${(message.author.id)}>`);
+            const embed = new Discord.MessageEmbed()
+            .setColor('ff3333')
+            .setTitle('❌ Kick')
+            .setDescription(`${message.mentions.members.first()} a été **expulsé** du serveur à la demande de <@${sender}>`);
+            message.channel.send(embed);
+            return
         }
     }
 }
