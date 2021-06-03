@@ -11,6 +11,7 @@ module.exports = {
             { name: '-about', value: 'donnes les informations sur le bot'},
             { name: '-biere ou -beer [_mention de la personne_]', value: 'offre une bière a la personne de ton choix'},
             { name: '-champagne [_mention de la personne_]', value: 'offre une coupe de champagne a la personne de ton choix'},
+            { name: '-coin ou -piece', value: 'lance un pile ou face'},
             { name: '-clear ou purge [_nombres de messages_]', value: 'supprime un nombre donné de message (requiert la permission de gérer les messages)'},
             { name: '-help', value: 'afficher toutes les commandes'},
             { name: '-kick [_mention de la personne_]', value: "expulse la personne de votre choix du serveur (requiert la permission d'expulser des membres)"},

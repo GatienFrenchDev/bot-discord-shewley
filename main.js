@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const client = new Discord.Client();
 
@@ -55,6 +55,9 @@ client.on('message', message => {
         }
         else if (command === 'champagne') {
             client.commands.get('champagne').execute(message, args);
+        }
+        else if (command === 'piece' || command === 'coin') {
+            client.commands.get('piece').execute(message, args);
         }
         else if (command === 'clear' || command === 'purge') {
             client.commands.get('clear').execute(message, args);
