@@ -38,6 +38,33 @@ module.exports = {
             .setDescription(`<@${message.author.id}>, tu dois entrer le nom de la musique !`)
             return
         }
+        const validURL = (str) =>{
+            var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+            if(!regex.test(str)){
+                return false;
+            } else {
+                return true;
+            }
+        }
+        if(validURL(args[0])){
+            if (!queue.length == 0) {
+                const embed = new Discord.MessageEmbed()
+                .setColor('1cffc6')
+                .setTitle('🎼 Musique !')
+                .setDescription(`**${args[0]}** a été ajouté à la file d'attente par <@${message.author.id}>`)
+                message.channel.send(embed);
+                queue.push(args[0])
+                return
+            }
+            queue.push(args[0]);
+            message.member.voice.channel.join().then(function(connection){play(connection, message)});
+            const embed = new Discord.MessageEmbed()
+            .setColor('1cffc6')
+            .setTitle('🎼 Musique !')
+            .setDescription(`Je joue maintenant **${args[0]}** demandé par <@${message.author.id}>`)
+            message.channel.send(embed);
+            return
+        }
 
         if (args[0] === 'clear'){
             queue = [];
