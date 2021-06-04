@@ -1,3 +1,6 @@
+const Discord = require("discord.js")
+
+
 const { ReactionCollector } = require("discord.js")
 
 module.exports = {
@@ -11,7 +14,12 @@ module.exports = {
         if (args[0] < 2) return message.reply ('Tu ne peux pas supprimer un seul message !');
 
         await message.channel.messages.fetch({limit : args[0]}).then(messages => {
-            message.channel.bulkDelete(messages, true).then (message.channel.send("`J'ai supprimé "+args[0]+" messages avec succès !`"));
+            message.channel.bulkDelete(messages, true)
+            const embedhelp = new Discord.MessageEmbed()
+            .setColor('03fc0b')
+            .setTitle('Clear Chat')
+            .setDescription(`J'ai supprimé **${args[0]}** messages sous la demande de <@${message.author.id}> avec succès ✅`)
+            message.channel.send(embedhelp);
         })
      }
 }
