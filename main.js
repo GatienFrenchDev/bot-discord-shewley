@@ -29,7 +29,7 @@ client.once('ready', () => {
     console.log('                                                         (____/ ');
     console.log('Codé par gαтιєη#5600 pour le Shewley Studio');
     console.log('Connecté en tant que : ' + client.user.tag);
-    client.user.setActivity("shewleystudio[-help]", {
+    client.user.setActivity("ShewleyStudio [-help]", {
       type: "STREAMING",
       url: "https://www.twitch.tv/shewleystudio"
     });
