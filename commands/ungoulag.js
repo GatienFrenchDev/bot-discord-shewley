@@ -15,7 +15,7 @@ module.exports = {
 		}
         let role_goulag = '852942201397706786'
         let member = message.mentions.members.first();
-        if(message.member.hasPermission('KICK_MEMBERS') && message.member.roles.cache.has(role_goulag)){
+        if(message.member.hasPermission('KICK_MEMBERS') && member.roles.cache.has(role_goulag)){
             member.roles.remove(role_goulag)
             const embed = new Discord.MessageEmbed()
             .setColor('#ff0000')
