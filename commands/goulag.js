@@ -20,9 +20,15 @@ module.exports = {
             const embed = new Discord.MessageEmbed()
             .setColor('#ff0000')
             .setTitle('GOULAG <:goulag:852947831751966734>')
-            .setDescription(`${member}, tu as été envoyé au **goulag** par <@${sender}> !`)
+            .setDescription(`${member}, tu as été envoyé au **goulag** par <@${sender}> pour 30 secondes !`)
             message.channel.send(embed);
             message.react('<:goulag:852947831751966734>');
+            const delay = ms => new Promise(res => setTimeout(res, ms));
+            const timer = async () => {
+                await delay(30000);
+                member.roles.remove(role_goulag)
+              };
+              timer()
             return 
         }else{
             const embed = new Discord.MessageEmbed()
