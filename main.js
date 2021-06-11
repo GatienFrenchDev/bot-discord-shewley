@@ -74,6 +74,9 @@ client.on('message', message => {
         else if (command === 'kick') {
             client.commands.get('kick').execute(message, args);
         }
+        else if (command === 'goulag') {
+            client.commands.get('goulag').execute(message, args);
+        }
         
         else if (command === 'about') {
             client.commands.get('about').execute(message, args);
