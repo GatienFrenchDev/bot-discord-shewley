@@ -11,7 +11,7 @@ const fs = require('fs');
 
 const welcome = require('./welcome')
 
-let channel_counting = '859710124044976161'
+let channel_counting = '854638802450120714'
 let last = ''
 
 client.commands = new Discord.Collection();
