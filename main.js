@@ -24,7 +24,7 @@ for (const file of commandFiles){
 }
 
 client.once('ready', () => {
-    client.channels.cache.get(channel_counting).send('`le bot a été redemarré, le compteur doit etre redéfini :/`')
+    client.channels.cache.get(channel_counting).send('`le bot a été redemarré, le compteur doit etre redéfini`')
     console.log(' ______                 ______ _                 _                  ');
     console.log('(____  \        _      / _____) |               | |             ');
     console.log(' ____)  ) ___ _| |_   ( (____ | |__  _____ _ _ _| | _____ _   _ ');
