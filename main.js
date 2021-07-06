@@ -9,11 +9,13 @@ const prefix = "-";
 
 const fs = require('fs');
 
+let temp = fs.readFileSync('counting.txt', 'utf-8')
+let number = parseInt(temp)
+
 const welcome = require('./welcome')
 
 let channel_counting = '854638802450120714'
 let last = ''
-let  number = 0
 
 client.commands = new Discord.Collection();
 
@@ -47,11 +49,18 @@ client.on('message', message => {
             if (parseInt(message.content) == 100){
                 message.react('💯')
             }else if(parseInt(message.content) == 69){
-                message.react('😎')
+                message.react('<:XelaWTF:841404837223989261>')
+            }else if(parseInt(message.content) > 49){
+                message.react('☑')
+            }else if(parseInt(message.content) == 10){
+                message.react('<:bahyes:705377673622323250>')
             }else{
                 message.react('✅')
             }
             number++
+            fs.writeFile('counting.txt', number.toString(), function (err) {
+                if (err) return console.log(err);
+              });
             last = message.author.id
             return
         }else{

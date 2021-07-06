@@ -19,7 +19,7 @@ module.exports = {
             member.roles.add(role_goulag)
             const embed = new Discord.MessageEmbed()
             .setColor('#ff0000')
-            .setTitle('GOULAG <:goulag:852947831751966734>')
+            .setTitle('GOULAG <:goulag:856217798609731584>')
             .setDescription(`${member}, tu as été envoyé au **goulag** par <@${sender}> pour 30 secondes !`)
             message.channel.send(embed);
             message.react('<:goulag:856217798609731584>');
@@ -33,7 +33,7 @@ module.exports = {
         }else{
             const embed = new Discord.MessageEmbed()
             .setColor('#ff0000')
-            .setTitle('GOULAG <:goulag:852947831751966734>')
+            .setTitle('GOULAG <:goulag:856217798609731584>')
             .setDescription(`<@${sender}>, tu n'as pas les permissions pour envoyer des gens au goulag !`)
             message.channel.send(embed)
             return
