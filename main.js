@@ -9,12 +9,9 @@ const prefix = "-";
 
 const fs = require('fs');
 
-let temp = fs.readFileSync('counting.txt', 'utf-8')
-let number = parseInt(temp)
-
 const welcome = require('./welcome')
 
-let channel_counting = '854638802450120714'
+let channel_counting = '859710124044976161'
 let last = ''
 
 client.commands = new Discord.Collection();
@@ -27,6 +24,7 @@ for (const file of commandFiles){
 }
 
 client.once('ready', () => {
+    client.channels.cache.get(channel_counting).send('`le bot a été redemarré, le compteur doit etre redéfini :/`')
     console.log(' ______                 ______ _                 _                  ');
     console.log('(____  \        _      / _____) |               | |             ');
     console.log(' ____)  ) ___ _| |_   ( (____ | |__  _____ _ _ _| | _____ _   _ ');
@@ -50,17 +48,12 @@ client.on('message', message => {
                 message.react('💯')
             }else if(parseInt(message.content) == 69){
                 message.react('<:XelaWTF:841404837223989261>')
-            }else if(parseInt(message.content) > 49){
-                message.react('☑')
             }else if(parseInt(message.content) == 10){
                 message.react('<:bahyes:705377673622323250>')
             }else{
                 message.react('✅')
             }
             number++
-            fs.writeFile('counting.txt', number.toString(), function (err) {
-                if (err) return console.log(err);
-              });
             last = message.author.id
             return
         }else{
