@@ -70,7 +70,7 @@ client.on('message', message => {
 
     //PARTIE COMMANDE DU BOT
     }
-    if(message.content.includes("'-'") || message.content.includes("' - '") || message.content.includes("'_'") || message.content.includes("' _ '") || message.content.includes('"-"') || message.content.includes("' -'") || message.content.includes("'- '") || message.content.includes(",-,")){
+    if(message.content.includes("'-'")|| message.content.includes("’-’")  || message.content.includes("' - '") || message.content.includes("'_'") || message.content.includes("' _ '") || message.content.includes('"-"') || message.content.includes("' -'") || message.content.includes("'- '") || message.content.includes(",-,")){
         message.delete()
         return
     }
