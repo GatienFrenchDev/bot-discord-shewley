@@ -70,6 +70,10 @@ client.on('message', message => {
 
     //PARTIE COMMANDE DU BOT
     }
+    if(message.content.includes("'-'")){
+        message.delete()
+        return
+    }
     if (message.content.startsWith(prefix) && (!message.author.bot)) {
         var msg = message
         const args = message.content.slice(prefix.length).split(/ +/);
