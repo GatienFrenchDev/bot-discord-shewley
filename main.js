@@ -42,6 +42,11 @@ client.on('message', message => {
     if (message.author.bot) return
 
     //PARTIE COMPTAGE DU BOT
+    if (message.channel.id === channel_meme && message.attachments.size > 0){
+        message.react('🔼')
+        message.react('🔽')
+        return
+    }
     if (message.channel.id === channel_counting && !isNaN(message.content)){
         if (parseInt(message.content) == number+1 && message.author.id !== last){
             if (parseInt(message.content) == 100){
