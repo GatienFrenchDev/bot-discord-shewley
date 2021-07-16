@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const config = require('../config/config.json')
 
 module.exports = {
     name: 'goulag',
@@ -13,7 +14,7 @@ module.exports = {
             message.channel.send(embed);
 			return
 		}
-        let role_goulag = '852942201397706786'
+        let role_goulag = config.role_goulag
         let member = message.mentions.members.first();
         if(message.member.hasPermission('KICK_MEMBERS')){
             member.roles.add(role_goulag)

@@ -25,7 +25,11 @@ for (const file of commandFiles){
 
 // CODE DU DEMARRAGE
 client.once('ready', () => {
-    client.channels.cache.get(channel_counting).send('`le bot a été redemarré, le compteur doit etre redéfini`')
+    const embed = new Discord.MessageEmbed()
+            .setColor('#d90416')
+            .setTitle('🔄 REDEMARRGE')
+            .setDescription(`Attention, le bot a été **redémarré**. \nIl faut redéfinir le compteur (-setcounting)`)
+    client.channels.cache.get(channel_counting).send(embed)
     console.log(' ______                 ______ _                 _                  ')
     console.log('(____  \        _      / _____) |               | |             ')
     console.log(' ____)  ) ___ _| |_   ( (____ | |__  _____ _ _ _| | _____ _   _ ')
@@ -161,7 +165,7 @@ client.on('message', message => {
         if (command === 'yt' || command === 'ytb' || command === 'youtube') {
             message.channel.send(':movie_camera: `Notre chaine Youtube : https://www.youtube.com/channel/UC_Nbm0HQ7MHRdK0pAaGmd1g`')
         }
-        
+
     //PARTIE REPONSE QUOI -> FEUR 
     }else if (message.content.endsWith('quoi') || message.content.endsWith('quoi ?')){
         message.channel.send('FEUR :sunglasses:')
