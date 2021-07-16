@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 
 module.exports = (client) => {
     
-    const channelid = '565118792569585674' //channel de bienvenue
+    const config = require('../config/config.json')
+
+    const channelid = config.channel_welcome //channel de bienvenue
 
     client.on('guildMemberAdd', (member) => {
 

@@ -1,18 +1,16 @@
+// IMPORTATION DES PACKAGES
 const Discord = require('discord.js');
 const { parse } = require('dotenv');
-
 require('dotenv').config();
-
 const client = new Discord.Client();
-
-const prefix = "-";
-
 const fs = require('fs');
 
-const welcome = require('./welcome')
+const welcome = require('./listeners/welcome')
+const config = require('./config/config.json')
 
-let channel_counting = '854638802450120714'
-let channel_meme = '643158542546763833'
+const prefix = config.prefix
+let channel_counting = config.channel_counting
+let channel_meme = config.channel_meme
 let last = ''
 
 client.commands = new Discord.Collection();
@@ -42,12 +40,13 @@ client.once('ready', () => {
 client.on('message', message => {
     if (message.author.bot) return
 
-    //PARTIE COMPTAGE DU BOT
+    // PARTIE CHANNEL MEME
     if (message.channel.id === channel_meme && message.attachments.size > 0){
         message.react('🔼')
         message.react('🔽')
         return
     }
+    //PARTIE COMPTAGE DU BOT
     if (message.channel.id === channel_counting && !isNaN(message.content)){
         if (parseInt(message.content) == number+1 && message.author.id !== last){
             if (parseInt(message.content) == 100){
