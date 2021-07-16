@@ -5,38 +5,41 @@ require('dotenv').config();
 const client = new Discord.Client();
 const fs = require('fs');
 
+// FICHIERS DONT DEPANT LE BOT
 const welcome = require('./listeners/welcome')
 const config = require('./config/config.json')
 
+// RECUPERATION DES VALEURS DU CONFIG.JSON
 const prefix = config.prefix
 let channel_counting = config.channel_counting
 let channel_meme = config.channel_meme
 let last = ''
 
-client.commands = new Discord.Collection();
-
-const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+// UTILISATION DU DOSSIER "COMMMANDS"
+client.commands = new Discord.Collection()
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'))
 for (const file of commandFiles){
-    const command = require(`./commands/${file}`);
-
-    client.commands.set(command.name, command);
+    const command = require(`./commands/${file}`)
+    client.commands.set(command.name, command)
 }
 
+// CODE DU DEMARRAGE
 client.once('ready', () => {
     client.channels.cache.get(channel_counting).send('`le bot a été redemarré, le compteur doit etre redéfini`')
-    console.log(' ______                 ______ _                 _                  ');
-    console.log('(____  \        _      / _____) |               | |             ');
-    console.log(' ____)  ) ___ _| |_   ( (____ | |__  _____ _ _ _| | _____ _   _ ');
-    console.log('|  __  ( / _ (_   _)   \____ \|  _ \| ___ | | | | || ___ | | | |');
-    console.log('| |__)  ) |_| || |_    _____) ) | | | ____| | | | || ____| |_| |');
-    console.log('|______/ \___/  \__)  (______/|_| |_|_____)\___/ \_)_____)\__  |');
-    console.log('                                                         (____/ ');
-    console.log('Codé par gαтιєη#5600 pour le Shewley Studio');
-    console.log('Connecté en tant que : ' + client.user.tag);
+    console.log(' ______                 ______ _                 _                  ')
+    console.log('(____  \        _      / _____) |               | |             ')
+    console.log(' ____)  ) ___ _| |_   ( (____ | |__  _____ _ _ _| | _____ _   _ ')
+    console.log('|  __  ( / _ (_   _)   \____ \|  _ \| ___ | | | | || ___ | | | |')
+    console.log('| |__)  ) |_| || |_    _____) ) | | | ____| | | | || ____| |_| |')
+    console.log('|______/ \___/  \__)  (______/|_| |_|_____)\___/ \_)_____)\__  |')
+    console.log('                                                         (____/ ')
+    console.log('Codé par gαтιєη#5600 pour le Shewley Studio')
+    console.log('Connecté en tant que : ' + client.user.tag)
     client.user.setPresence({ activity: { name: `${client.users.cache.size} membres` , type: 'WATCHING'}, status: 'ONLINE' })
-    welcome(client);
+    welcome(client)
 })
 
+// S'EXECUTE A CHAQUE MESSAGE SUR LE SERVEUR
 client.on('message', message => {
     if (message.author.bot) return
 
@@ -73,11 +76,12 @@ client.on('message', message => {
             return
         }
 
-    //PARTIE COMMANDE DU BOT
+    //SUPPRESION DE L'EMOJI '-'
     }
     if(message.content.includes("'-'")|| message.content.includes("’-’")  || message.content.includes("' - '") || message.content.includes("'_'") || message.content.includes("' _ '") || message.content.includes('"-"') || message.content.includes("' -'") || message.content.includes("'- '") || message.content.includes(",-,")){
         message.delete()
         return
+    // PARTIE COMMANDE DU BOT
     }
     if (message.content.startsWith(prefix) && (!message.author.bot)) {
         var msg = message
@@ -157,7 +161,8 @@ client.on('message', message => {
         if (command === 'yt' || command === 'ytb' || command === 'youtube') {
             message.channel.send(':movie_camera: `Notre chaine Youtube : https://www.youtube.com/channel/UC_Nbm0HQ7MHRdK0pAaGmd1g`')
         }
-    //PARTIE REPONSE QUOI FEUR 
+        
+    //PARTIE REPONSE QUOI -> FEUR 
     }else if (message.content.endsWith('quoi') || message.content.endsWith('quoi ?')){
         message.channel.send('FEUR :sunglasses:')
     }else{
