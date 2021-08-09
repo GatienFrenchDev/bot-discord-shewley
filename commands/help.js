@@ -17,7 +17,7 @@ module.exports = {
             { name: '-help', value: 'afficher toutes les commandes'},
             { name: '-kick [_mention de la personne_]', value: "expulse la personne de votre choix du serveur (requiert la permission d'expulser des membres)"},
             { name: '-lookup [_mention de la personne_]', value: "récupère les infos du compte mentionné"},
-            { name: '-mute [__mention de la personnne__] [__raison__]', value: 'mute une personne'},
+            { name: '-mute [_mention de la personnne_] [_raison_]', value: 'mute une personne'},
             { name: '-p ou -play [_nom de la musique_]', value: 'pour jouer une musique sur un vocal via youtube'},
             { name: '-p clear', value: "vide la file d'attente du bot"},
             { name: '-p skip', value: "passe à la prochaine musique sur la file d'attente"},
