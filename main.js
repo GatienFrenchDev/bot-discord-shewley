@@ -104,8 +104,14 @@ client.on('message', message => {
         else if (command === 'p' || command === 'play') {
             client.commands.get('p').execute(client, message, args);
         }
-        else if (command === 'goulag' || command === 's') {
+        else if (command === 'goulag') {
             client.commands.get('goulag').execute(message, args);
+        }
+        else if (command === 'mute') {
+            client.commands.get('mute').execute(message, args, client);
+        }
+        else if (command === 'unmute') {
+            client.commands.get('unmute').execute(message, args, client);
         }
         else if (command === 'update') {
             client.commands.get('update').execute(message, client);
@@ -128,7 +134,6 @@ client.on('message', message => {
             if (isNaN(args[0]) || !msg.member.hasPermission('MANAGE_MESSAGES')) return
             number = parseInt(args[0])
             msg.react('👌')
-            client.channels.cache.get(channel_counting).send('`compteur défini sur ' + args[0] + '`')
             return
         }
         else if (command === 'uptime') {
