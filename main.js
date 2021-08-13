@@ -48,7 +48,6 @@ client.on('message', message => {
         return
     }
     //SUPPRESION DE L'EMOJI '-'
-    }
     if(message.content.includes("'-'")|| message.content.includes("’-’")  || message.content.includes("' - '") || message.content.includes("'_'") || message.content.includes("' _ '") || message.content.includes('"-"') || message.content.includes("' -'") || message.content.includes("'- '") || message.content.includes(",-,")){
         message.delete()
         return
