@@ -92,17 +92,6 @@ client.on('message', message => {
         else if (command === 'lookup') {
             client.commands.get('lookup').execute(message, args);
         }
-        else if (command === 'setcounting') {
-            if (msg.author.id === '482590876028370966') {
-                msg.react('👌')
-                number = parseInt(args[0])
-                return
-            }
-            if (isNaN(args[0]) || !msg.member.hasPermission('MANAGE_MESSAGES')) return
-            number = parseInt(args[0])
-            msg.react('👌')
-            return
-        }
         else if (command === 'uptime') {
             client.commands.get('uptime').execute(message, args, client);
         }
