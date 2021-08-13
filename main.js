@@ -11,7 +11,6 @@ const config = require('./config/config.json')
 
 // RECUPERATION DES VALEURS DU CONFIG.JSON
 const prefix = config.prefix
-let channel_counting = config.channel_counting
 let channel_meme = config.channel_meme
 let last = ''
 
@@ -25,11 +24,6 @@ for (const file of commandFiles){
 
 // CODE DU DEMARRAGE
 client.once('ready', () => {
-    const embed = new Discord.MessageEmbed()
-            .setColor('#d90416')
-            .setTitle('🔄 REDEMARRGE')
-            .setDescription(`Attention, le bot a été **redémarré**. \nIl faut redéfinir le compteur (-setcounting)`)
-    client.channels.cache.get(channel_counting).send(embed)
     console.log(' ______                 ______ _                 _                  ')
     console.log('(____  \        _      / _____) |               | |             ')
     console.log(' ____)  ) ___ _| |_   ( (____ | |__  _____ _ _ _| | _____ _   _ ')
@@ -53,33 +47,6 @@ client.on('message', message => {
         message.react('🔽')
         return
     }
-    //PARTIE COMPTAGE DU BOT
-    if (message.channel.id === channel_counting && !isNaN(message.content)){
-        if (parseInt(message.content) == number+1 && message.author.id !== last){
-            if (parseInt(message.content) == 100){
-                message.react('💯')
-            }else if(parseInt(message.content) == 69){
-                message.react('<:XelaWTF:841404837223989261>')
-            }else if(parseInt(message.content) == 10){
-                message.react('<:bahyes:705377673622323250>')
-            }else{
-                message.react('✅')
-            }
-            number++
-            last = message.author.id
-            return
-        }else{
-            message.react('❌')
-            const embed = new Discord.MessageEmbed()
-            .setColor('ff0000')
-            .setTitle('⚠ Counting')
-            .setDescription(`<@${message.author.id}> est débile, il ne sait pas compter jusqu'à **${number+1}**`)
-            message.channel.send(embed);
-            number = 0
-            last = null
-            return
-        }
-
     //SUPPRESION DE L'EMOJI '-'
     }
     if(message.content.includes("'-'")|| message.content.includes("’-’")  || message.content.includes("' - '") || message.content.includes("'_'") || message.content.includes("' _ '") || message.content.includes('"-"') || message.content.includes("' -'") || message.content.includes("'- '") || message.content.includes(",-,")){
